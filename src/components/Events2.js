@@ -24,16 +24,17 @@ export default class Events2 extends Component {
     })
     this.setState({
       data: data,
-      name: ''
+      name: '',
+      age: ''
     })
   }
 
   render() {
-    const {data} = this.state
+    const {data, name, age} = this.state
     return (
       <div>
-        <input name="name" id="name" onChange={this.handleChange} placeholder="Enter your name"/>
-        <input name="age" id="age" onChange={this.handleChange} placeholder="Enter your age"/>
+        <input name="name" id="name" value={name} onChange={this.handleChange} placeholder="Enter your name"/>
+        <input name="age" id="age" value={age} onChange={this.handleChange} placeholder="Enter your age"/>
         <button
           type="button"
           onClick={this.insertToData}
@@ -42,7 +43,7 @@ export default class Events2 extends Component {
         </button>
         <ul>
           {data.map(item => (
-            <li key={item}>{item.name} - {item.age}</li>
+            <li key={item.name}>{item.name} - {item.age}</li>
           ))}
         </ul>
         {data}
