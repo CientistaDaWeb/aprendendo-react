@@ -4,16 +4,16 @@ export default class Clock2 extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      timer: this.getClock()
+      timer: this.getClock(),
     }
   }
 
   componentDidMount() {
-    this.timer = setInterval(() => this.updateClock(), 1000)
+    this.timerId = setInterval(() => this.updateClock(), 1000)
   }
 
   componentWillUnmount() {
-    clearInterval(this.timer)
+    clearInterval(this.timerId)
   }
 
   getClock() {
@@ -28,14 +28,9 @@ export default class Clock2 extends Component {
   }
 
   updateClock = () => {
-    console.log('passou no updateClock()')
-    // bug, setState não parece estar sendo executado
-    this.setState = ({
+    this.setState({
       timer: this.getClock()
-    }, () => {
-      console.log(this.state.timer, 'atualizou o relógio')
     })
-
   }
 
   render() {
