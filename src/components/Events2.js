@@ -13,19 +13,18 @@ export default class Events2 extends Component {
   handleChange = (event) => {
     this.setState({
       [event.target.name]: event.target.value
-    }, () => {
-      console.log(this.state.name)
     })
   }
 
   insertToData = () => {
     const data = this.state.data
-    data.push(this.state.name)
+    data.push({
+      name: this.state.name,
+      age: this.state.age
+    })
     this.setState({
       data: data,
       name: ''
-    }, () => {
-      console.log(this.state.data)
     })
   }
 
@@ -34,7 +33,7 @@ export default class Events2 extends Component {
     return (
       <div>
         <input name="name" id="name" onChange={this.handleChange} placeholder="Enter your name"/>
-        {/*<input name="age" id="age" onChange={this.handleChange} placeholder="Enter your age"/>*/}
+        <input name="age" id="age" onChange={this.handleChange} placeholder="Enter your age"/>
         <button
           type="button"
           onClick={this.insertToData}
@@ -43,7 +42,7 @@ export default class Events2 extends Component {
         </button>
         <ul>
           {data.map(item => (
-            <li key={item}>{item}</li>
+            <li key={item}>{item.name} - {item.age}</li>
           ))}
         </ul>
         {data}
