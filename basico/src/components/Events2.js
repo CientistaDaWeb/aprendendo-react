@@ -54,7 +54,6 @@ export default class Events2 extends Component {
               <li key={item.name}>{item.name} - {item.age}</li>
             ))}
           </ul>
-          {data}
         </div>
       </div>
     );
