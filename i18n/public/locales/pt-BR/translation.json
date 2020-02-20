@@ -1,0 +1,7 @@
+{
+  "title": "Bem vindo ao react utilizando react-i18next",
+  "description": {
+    "part1": "Para começar, edite o arquivo<1>src/App.js</1> e salve para recarregá-lo.",
+    "part2": "Selecione a linguagem acima para trocá-la."
+  }
+}
